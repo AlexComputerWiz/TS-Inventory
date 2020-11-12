@@ -6,3 +6,5 @@ The idea for the project was to create a web app for the tech support department
 
 
 ![GitHub Logo](/screenshots/screenshot1.png)
+
+This is a screenshot of the main dashboard without the Firebase data connected.
