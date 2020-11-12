@@ -5,6 +5,14 @@ This is a Firebase firestore web app which I worked through Spring 2020 to learm
 The idea for the project was to create a web app for the tech support department to track POS devices both in inventory and deployed to merchants. This way, each agent could pull records, add records, and edit records in real time. Database security was enforced by requiring login via Firebase Auth.
 
 
-![GitHub Logo](/screenshots/screenshot1.png)
+![Screenshot 1](/screenshots/screenshot1.png)
 
 This is a screenshot of the main dashboard without the Firebase data connected.
+
+![Screenshot 2](/screenshots/screenshot2.png)
+
+Inventory Dashboard
+
+![Screenshot 3](/screenshots/screenshot3.png)
+
+Login screen
