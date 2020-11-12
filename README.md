@@ -9,7 +9,7 @@ The idea for the project was to create a web app for the tech support department
 
 This is a screenshot of the main dashboard without the Firebase data connected.
 
-![Screenshot 4](/screenshots/screenshot2.png)
+![Screenshot 4](/screenshots/screenshot4.png)
 
 Inventory Dashboard
 
