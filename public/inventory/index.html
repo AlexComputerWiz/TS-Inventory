@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Inventory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="justify-content: space-between;">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/checkIn">Check In</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/workbench">Workbench</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/inventory">Inventory</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/deploy">Deploy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/reports">Reports</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a style="cursor: pointer;" class="nav-link" onclick="auth.signOut()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- row 1 -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+
+    <!-- Devices in Inventory -->
+
+    <div class="row justify-content-center">
+      <div class="col-sm-3">
+        <div class="card bg-success text-white text-center">
+          <div class="card-header">
+            <h>Devices in Inventory</h1>
+          </div>
+          <div class="card-body">
+            <h1>30</h1>
+          </div>
+        </div>
+      </div>
+      <!--End of card-->
+
+      <!--New Devices-->
+
+      <div class="col-sm-3">
+        <div class="card bg-primary text-white text-center">
+          <div class="card-header">
+            <h>New</h1>
+          </div>
+          <div class="card-body">
+            <h1>1736</h1>
+          </div>
+        </div>
+      </div>
+      <!--End of card-->
+
+      <!--Used Devices-->
+
+      <div class="col-sm-3">
+        <div class="card bg-info text-white text-center">
+          <div class="card-header">
+            <h>Used</h1>
+          </div>
+          <div class="card-body">
+            <h1>17</h1>
+          </div>
+        </div>
+      </div>
+      <!--End of card-->
+    </div>
+    <!--End of row-->
+  </div>
+  <!--End of fluid container-->
+
+  <!-- row 2 -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+
+    <!--Damaged Devices-->
+
+    <div class="row justify-content-center">
+      <div class="col-sm-3">
+        <div class="card bg-warning text-white text-center">
+          <div class="card-header">
+            <h>Damaged</h1>
+          </div>
+          <div class="card-body">
+            <h1>30</h1>
+          </div>
+        </div>
+      </div>
+      <!--End of card-->
+
+      <!--Discontinued Devices-->
+
+      <div class="col-sm-3">
+        <div class="card bg-secondary text-white text-center">
+          <div class="card-header">
+            <h>Discontinued</h1>
+          </div>
+          <div class="card-body">
+            <h1>1736</h1>
+          </div>
+        </div>
+      </div>
+      <!--End of card-->
+
+      <!--Unknown Devices-->
+
+      <div class="col-sm-3">
+        <div class="card bg-danger text-white text-center">
+          <div class="card-header">
+            <h>Unknown</h1>
+          </div>
+          <div class="card-body">
+            <h1>17</h1>
+          </div>
+        </div>
+      </div>
+      <!--End of card-->
+    </div>
+    <!--End of row-->
+  </div>
+  <!--End of fluid container-->
+
+  <!-- TERMINAL INVENTORY -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th class="bg-secondary text-center" colspan="6" scope="col">Terminals</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">New</th>
+              <th scope="col">Used</th>
+              <th scope="col">Damaged</th>
+              <th scope="col">Discontinued</th>
+              <th scope="col">Unknown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="" data-toggle="modal" data-target="#exampleModalCenter">PAX S80</a></th>
+              <td id="paxs80New"></td>
+              <td id="paxs80Used"></td>
+              <td id="paxs80Damaged"></td>
+              <td id="paxs80Discontinued"></td>
+              <td id="paxs80Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">FD 150</th>
+              <td id="fd150New"></td>
+              <td id="fd150Used"></td>
+              <td id="fd150Damaged"></td>
+              <td id="fd150Discontinued"></td>
+              <td id="fd150Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">FD 130</th>
+              <td id="fd130New"></td>
+              <td id="fd130Used"></td>
+              <td id="fd130Damaged"></td>
+              <td id="fd130Discontinued"></td>
+              <td id="fd130Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">VX 520 NFC</th>
+              <td id="vx520nfcNew"></td>
+              <td id="vx520nfcUsed"></td>
+              <td id="vx520nfcDamaged"></td>
+              <td id="vx520nfcDiscontinued"></td>
+              <td id="vx520nfcUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">VX 520</th>
+              <td id="vx520New"></td>
+              <td id="vx520Used"></td>
+              <td id="vx520Damaged"></td>
+              <td id="vx520Discontinued"></td>
+              <td id="vx520Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">POYNT</th>
+              <td id="poyntNew"></td>
+              <td id="poyntUsed"></td>
+              <td id="poyntDamaged"></td>
+              <td id="poyntDiscontinued"></td>
+              <td id="poyntUnknown"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIN-PADS -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th class="bg-info text-center" colspan="6" scope="col">Pin-Pads</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">New</th>
+              <th scope="col">Used</th>
+              <th scope="col">Damaged</th>
+              <th scope="col">Discontinued</th>
+              <th scope="col">Unknown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">PAX S300</th>
+              <td id="paxs300New"></td>
+              <td id="paxs300Used"></td>
+              <td id="paxs300Damaged"></td>
+              <td id="paxs300Discontinued"></td>
+              <td id="paxs300Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">VX 805</th>
+              <td id="vx805New"></td>
+              <td id="vx805Used"></td>
+              <td id="vx805Damaged"></td>
+              <td id="vx805Discontinued"></td>
+              <td id="vx805Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">RP 10</th>
+              <td id="rp10New"></td>
+              <td id="rp10Used"></td>
+              <td id="rp10Damaged"></td>
+              <td id="rp10Discontinued"></td>
+              <td id="rp10Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">FD 35</th>
+              <td id="fd35New"></td>
+              <td id="fd35Used"></td>
+              <td id="fd35Damaged"></td>
+              <td id="fd35Discontinued"></td>
+              <td id="fd35Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">FD 40</th>
+              <td id="fd40New"></td>
+              <td id="fd40Used"></td>
+              <td id="fd40Damaged"></td>
+              <td id="fd40Discontinued"></td>
+              <td id="fd40Unknown"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--End of fluid container-->
+
+  <!-- CLOVER -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th class="bg-success text-center" colspan="6" scope="col">Clover</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">New</th>
+              <th scope="col">Used</th>
+              <th scope="col">Damaged</th>
+              <th scope="col">Discontinued</th>
+              <th scope="col">Unknown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <th scope="row">Cover 2018 Station</th>
+            <td id="clover2018stationNew"></td>
+            <td id="clover2018stationUsed"></td>
+            <td id="clover2018stationDamaged"></td>
+            <td id="clover2018stationDiscontinued"></td>
+            <td id="clover2018stationUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Mini LTE</th>
+              <td id="cloverminilteNew"></td>
+              <td id="cloverminilteUsed"></td>
+              <td id="cloverminilteDamaged"></td>
+              <td id="cloverminilteDiscontinued"></td>
+              <td id="cloverminilteUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Mini WiFi</th>
+              <td id="cloverminiwifiNew"></td>
+              <td id="cloverminiwifiUsed"></td>
+              <td id="cloverminiwifiDamaged"></td>
+              <td id="cloverminiwifiDiscontinued"></td>
+              <td id="cloverminiwifiUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Flex</th>
+              <td id="cloverflexNew"></td>
+              <td id="cloverflexUsed"></td>
+              <td id="cloverflexDamaged"></td>
+              <td id="cloverflexDiscontinued"></td>
+              <td id="cloverflexUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Mobile</th>
+              <td id="clovermobileNew"></td>
+              <td id="clovermobileUsed"></td>
+              <td id="clovermobileDamaged"></td>
+              <td id="clovermobileDiscontinued"></td>
+              <td id="clovermobileUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Station 1.0</th>
+              <td id="cloverstation1New"></td>
+              <td id="cloverstation1Used"></td>
+              <td id="cloverstation1Damaged"></td>
+              <td id="cloverstation1Discontinued"></td>
+              <td id="cloverstation1Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Go Bluetooth</th>
+              <td id="clovergobluetoothNew"></td>
+              <td id="clovergobluetoothUsed"></td>
+              <td id="clovergobluetoothDamaged"></td>
+              <td id="clovergobluetoothDiscontinued"></td>
+              <td id="clovergobluetoothUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Go</th>
+              <td id="clovergoNew"></td>
+              <td id="clovergoUsed"></td>
+              <td id="clovergoDamaged"></td>
+              <td id="clovergoDiscontinued"></td>
+              <td id="clovergoUnknown"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--End of fluid container-->
+
+  <!-- MicroSale -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th class="bg-primary text-center" colspan="6" scope="col">MicroSale</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">New</th>
+              <th scope="col">Used</th>
+              <th scope="col">Damaged</th>
+              <th scope="col">Discontinued</th>
+              <th scope="col">Unknown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Legacy Version 8</th>
+              <td id="legacyversion8New"></td>
+              <td id="legacyversion8Used"></td>
+              <td id="legacyversion8Damaged"></td>
+              <td id="legacyversion8Discontinued"></td>
+              <td id="legacyversion8Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Pulse - Version 8</th>
+              <td id="pulseversion8New"></td>
+              <td id="pulseversion8Used"></td>
+              <td id="pulseversion8Damaged"></td>
+              <td id="pulseversion8Discontinued"></td>
+              <td id="pulseversion8Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Pulse - Version 9</th>
+              <td id="pulseversion9New"></td>
+              <td id="pulseversion9Used"></td>
+              <td id="pulseversion9Damaged"></td>
+              <td id="pulseversion9Discontinued"></td>
+              <td id="pulseversion9Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Pulse Ultra - Version 9</th>
+              <td id="pulseultraversion9New"></td>
+              <td id="pulseultraversion9Used"></td>
+              <td id="pulseultraversion9Damaged"></td>
+              <td id="pulseultraversion9Discontinued"></td>
+              <td id="pulseultraversion9Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Pulse Ultra - Version 10</th>
+              <td id="pulseultraversion10New"></td>
+              <td id="pulseultraversion10Used"></td>
+              <td id="pulseultraversion10Damaged"></td>
+              <td id="pulseultraversion10Discontinued"></td>
+              <td id="pulseultraversion10Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Pulse Ultra w/ Printer - Version 10</th>
+              <td id="pulseultrawithprinterversion10New"></td>
+              <td id="pulseultrawithprinterversion10Used"></td>
+              <td id="pulseultrawithprinterversion10Damaged"></td>
+              <td id="pulseultrawithprinterversion10Discontinued"></td>
+              <td id="pulseultrawithprinterversion10Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Quest 7 - Version 9</th>
+              <td id="quest7version9New"></td>
+              <td id="quest7version9Used"></td>
+              <td id="quest7version9Damaged"></td>
+              <td id="quest7version9Discontinued"></td>
+              <td id="quest7version9Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Quest 7 - Version 10</th>
+              <td id="quest7version10New"></td>
+              <td id="quest7version10Used"></td>
+              <td id="quest7version10Damaged"></td>
+              <td id="quest7version10Discontinued"></td>
+              <td id="quest7version10Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Quest 10 - Version 9</th>
+              <td id="quest10version9New"></td>
+              <td id="quest10version9Used"></td>
+              <td id="quest10version9Damaged"></td>
+              <td id="quest10version9Discontinued"></td>
+              <td id="quest10version9Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Quest 10 - Version 10</th>
+              <td id="quest10version10New"></td>
+              <td id="quest10version10Used"></td>
+              <td id="quest10version10Damaged"></td>
+              <td id="quest10version10Discontinued"></td>
+              <td id="quest10version10Unknown"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--End of fluid container-->
+
+  <!-- PRINTERS -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th class="bg-danger text-center" colspan="6" scope="col">Printers</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">New</th>
+              <th scope="col">Used</th>
+              <th scope="col">Damaged</th>
+              <th scope="col">Discontinued</th>
+              <th scope="col">Unknown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Clover 550 Printer</th>
+              <td id="clover550printerNew"></td>
+              <td id="clover550printerUsed"></td>
+              <td id="clover550printerDamaged"></td>
+              <td id="clover550printerDiscontinued"></td>
+              <td id="clover550printerUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover 500 Printer</th>
+              <td id="clover500printerNew"></td>
+              <td id="clover550printerUsed"></td>
+              <td id="clover550printerDamaged"></td>
+              <td id="clover550printerDiscontinued"></td>
+              <td id="clover550printerUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Kitchen Printer</th>
+              <td id="cloverkitchenprinterNew"></td>
+              <td id="cloverkitchenprinterUsed"></td>
+              <td id="cloverkitchenprinterDamaged"></td>
+              <td id="cloverkitchenprinterDiscontinued"></td>
+              <td id="cloverkitchenprinterUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover 1.0 Printer</th>
+              <td id="clover1printerNew"></td>
+              <td id="clover1printerUsed"></td>
+              <td id="clover1printerDamaged"></td>
+              <td id="clover1printerDiscontinued"></td>
+              <td id="clover1printerUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Mobile Printer</th>
+              <td id="clovermobileprinterNew"></td>
+              <td id="clovermobileprinterUsed"></td>
+              <td id="clovermobileprinterDamaged"></td>
+              <td id="clovermobileprinterDiscontinued"></td>
+              <td id="clovermobileprinterUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Epson T20</th>
+              <td id="epsont20New"></td>
+              <td id="epsont20Used"></td>
+              <td id="epsont20Damaged"></td>
+              <td id="epsont20Discontinued"></td>
+              <td id="epsont20Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Epson M30</th>
+              <td id="epsonm30New"></td>
+              <td id="epsonm30Used"></td>
+              <td id="epsonm30Damaged"></td>
+              <td id="epsonm30Discontinued"></td>
+              <td id="epsonm30Unknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Bixolon SRP-275III</th>
+              <td id="bixolonNew"></td>
+              <td id="bixolonUsed"></td>
+              <td id="bixolonDamaged"></td>
+              <td id="bixolonDiscontinued"></td>
+              <td id="bixolonUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">TD TB3</th>
+              <td id="tdtb3New"></td>
+              <td id="tdtb3Used"></td>
+              <td id="tdtb3Damaged"></td>
+              <td id="tdtb3Discontinued"></td>
+              <td id="tdtb3Unknown"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--End of fluid container-->
+
+  <!-- Accessories -->
+
+  <div class="container-fluid" style="padding-top: 30px;">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th class="bg-warning text-center" colspan="6" scope="col">Accessories</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">New</th>
+              <th scope="col">Used</th>
+              <th scope="col">Damaged</th>
+              <th scope="col">Discontinued</th>
+              <th scope="col">Unknown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Clover Cash Drawer</th>
+              <td id="clovercashdrawerNew"></td>
+              <td id="clovercashdrawerUsed"></td>
+              <td id="clovercashdrawerDamaged"></td>
+              <td id="clovercashdrawerDiscontinued"></td>
+              <td id="clovercashdrawerUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Scanner</th>
+              <td id="cloverscannerNew"></td>
+              <td id="cloverscannerUsed"></td>
+              <td id="cloverscannerDamaged"></td>
+              <td id="cloverscannerDiscontinued"></td>
+              <td id="cloverscannerUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Scale</th>
+              <td id="cloverscaleNew"></td>
+              <td id="cloverscaleUsed"></td>
+              <td id="cloverscaleDamaged"></td>
+              <td id="cloverscaleDiscontinued"></td>
+              <td id="cloverscaleUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">Clover Go Stand</th>
+              <td id="clovergostandNew"></td>
+              <td id="clovergostandUsed"></td>
+              <td id="clovergostandDamaged"></td>
+              <td id="clovergostandDiscontinued"></td>
+              <td id="clovergostandUnknown"></td>
+            </tr>
+            <tr>
+              <th scope="row">TD Premium Dock</th>
+              <td id="tdpremiumdockNew"></td>
+              <td id="tdpremiumdockUsed"></td>
+              <td id="tdpremiumdockDamaged"></td>
+              <td id="tdpremiumdockDiscontinued"></td>
+              <td id="tdpremiumdockUnknown"></td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--End of fluid container-->
+
+  <div class="container-fluid" style="padding-top: 20px;">
+    <div class="row justify-content-center">
+      <div class="col-sm-9">
+        <div class="card">
+          <div class="card-body">
+            <h4>Search Inventory</h4>
+            <hr>
+
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="SerialNumber" aria-describedby="emailHelp"
+                  placeholder="Search by serial number, merchant name, or merchant ID">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <br><br>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid" style="padding-top: 30px;">
+    <div class="row justify-content-center">
+      <div class="col-sm-9">
+        <table class="table table-bordered" id="dashboardList">
+          <thead class="thead-dark">
+            <tr>
+              <th>Serial Number</th>
+              <th>Device Type</th>
+              <th>Encryption Type</th>
+              <th>Status</th>
+              <th>Merchant</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  <!--  -->
+  <!--  -->
+  <!-- SCRIPTS, MODALS, and PROCESSING -->
+  <!--  -->
+  <!--  -->
+  <!--  -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">PAX S80 Stock</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <table class="table table-bordered" id="dashboardList">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th>S/N</th>
+                      <th>Condition</th>
+                      <th>Encryption</th>
+                      <th>Debit?</th>
+                      <th>Date Inventoried</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- here is the footer -->
+
+  <footer class="row">
+    <div class="col text-center">
+      <br>
+      <hr>
+      <p>Copyright © Alex Robinson 2020</p>
+    </div>
+  </footer>
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD61-eN-IM-oUOwX7gVtmd3rkrjGQvRI8w",
+      authDomain: "tsinventory-75e09.firebaseapp.com",
+      databaseURL: "https://tsinventory-75e09.firebaseio.com",
+      projectId: "tsinventory-75e09",
+      storageBucket: "tsinventory-75e09.appspot.com",
+      messagingSenderId: "846964283525",
+      appId: "1:846964283525:web:fd3d3922925ea2675271ec",
+      measurementId: "G-GP8TJTBY39"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+  </script>
+
+  <!-- Compiled and minified JS -->
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/auth.js"></script>
+  <script src="/scripts/inventory.js"></script>
+
+</body>
+
+</html>

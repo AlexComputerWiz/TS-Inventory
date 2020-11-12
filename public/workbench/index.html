@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Workbench</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="justify-content: space-between;">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/checkIn">Check In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/workbench">Workbench</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/inventory">Inventory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/deploy">Deploy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/reports">Reports</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a style="cursor: pointer;" class="nav-link" onclick="auth.signOut()">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid" style="padding-top: 30px;">
+
+        <!--Devices in Inventory-->
+
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="card bg-secondary text-white text-center">
+                    <div class="card-header">
+                        <h>Zach</h1>
+                    </div>
+                    <div class="card-body">
+                        <h1>0</h1>
+                    </div>
+                </div>
+            </div>
+            <!--End of card-->
+
+            <!--Devices Deployed-->
+
+            <div class="col-sm-3">
+                <div class="card bg-primary text-white text-center">
+                    <div class="card-header">
+                        <h>Dan</h1>
+                    </div>
+                    <div class="card-body">
+                        <h1>0</h1>
+                    </div>
+                </div>
+            </div>
+            <!--End of card-->
+
+            <!--Past 30 Days-->
+
+            <div class="col-sm-3">
+                <div class="card bg-success text-white text-center">
+                    <div class="card-header">
+                        <h>Steven</h1>
+                    </div>
+                    <div class="card-body">
+                        <h1>0</h1>
+                    </div>
+                </div>
+            </div>
+            <!--End of card-->
+        </div>
+        <!--End of row-->
+    </div>
+    <!--End of container-->
+
+    <!--Search Box-->
+
+    <div class="container-fluid" style="padding-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-sm-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Search Workbench</h4>
+                        <hr>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="SerialNumber" aria-describedby="emailHelp"
+                                    placeholder="Search by serial number, merchant name, or merchant ID">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <br><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END Search Box-->
+    </div>
+    <!--End of container-->
+
+    <!--Table-->
+
+    <div class="container-fluid" style="padding-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-sm-9">
+                <table class="table table-bordered" id="workbenchList">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Device Type</th>
+                            <th>Encryption Type</th>
+                            <th>Status</th>
+                            <th>Merchant</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!--END Table-->
+    </div>
+    <!--End of container-->
+
+
+    <footer class="row">
+        <div class="col text-center">
+            <br>
+            <hr>
+            <p>Copyright © Alex Robinson 2020</p>
+        </div>
+    </footer>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyD61-eN-IM-oUOwX7gVtmd3rkrjGQvRI8w",
+            authDomain: "tsinventory-75e09.firebaseapp.com",
+            databaseURL: "https://tsinventory-75e09.firebaseio.com",
+            projectId: "tsinventory-75e09",
+            storageBucket: "tsinventory-75e09.appspot.com",
+            messagingSenderId: "846964283525",
+            appId: "1:846964283525:web:fd3d3922925ea2675271ec",
+            measurementId: "G-GP8TJTBY39"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+    </script>
+
+    <!-- Compiled and minified JS -->
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/auth.js"></script>
+    <script src="/scripts/workbench.js"></script>
+
+</body>
+
+</html>

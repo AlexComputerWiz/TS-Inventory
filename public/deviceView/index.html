@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Device View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="justify-content: space-between;">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/checkIn">Check In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/workbench">Workbench</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/inventory">Inventory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/deploy">Deploy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/reports">Reports</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a style="cursor: pointer;" class="nav-link" onclick="auth.signOut()">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid" style="padding-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <h5>Device Info</h5>
+            </div>
+        </div>
+    </div>
+    <!--End of fluid container-->
+
+
+    <div class="container-fluid" style="padding-top: 10px;">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="col">Serial Number</th>
+                                    <td scope="col"></td>
+                                    <th scope="col">Merchant</th>
+                                    <td scope="col"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Device Type</th>
+                                    <td></td>
+                                    <th>MID</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Encryption Type</th>
+                                    <td></td>
+                                    <th>Deployment Type</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Debit Encryption</th>
+                                    <td></td>
+                                    <th>Last Updated</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Condition</th>
+                                    <td></td>
+                                    <th>Dammage Type</th>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of fluid container-->
+
+    <div class="container-fluid" style="padding-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <form class="text-center">
+                    <button type="submit" class="btn btn-primary" id="editInfo">Edit Info</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="padding-top: 30px;">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <h5>Device History</h5>
+            </div>
+        </div>
+    </div>
+    <!--End of fluid container-->
+
+    <div class="container-fluid" style="padding-top: 10px;">
+        <div class="row justify-content-center">
+            <div class="col-9">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Action</th>
+                            <th scope="col">Merchant</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--End of fluid container-->
+
+
+
+
+    <!-- <div class="row justify-content-center">
+      <form id="addDoc">
+
+        <label for="serial number">S/N: </label>
+        <input type="text" id="serialNumber">
+
+        <br><br>
+
+        <label for="equipment type">Equipment Type: </label>
+        <select name="equipmentType" id="equipmentType">
+          <optgroup label="MicroSale POS">
+            <option value="Legacy Version 8">Legacy Version 8</option>
+            <option value="Pulse - Version 8">Pulse - Version 8</option>
+            <option value="Pulse - Version 9">Pulse - Version 9</option>
+            <option value="Pulse Ultra - Version 9">Pulse Ultra - Version 9</option>
+            <option value="Pulse Ultra - Version 10">Pulse Ultra - Version 10</option>
+            <option value="Pulse Ultra w/ Printer - Version 10">Pulse Ultra w/ Printer - Version 10</option>
+            <option value="Quest 7 - Version 9">Quest 7 - Version 9</option>
+            <option value="Quest 7 - Version 10">Quest 7 - Version 10</option>
+            <option value="Quest 10 - Version 9">Quest 10 - Version 9</option>
+            <option value="Quest 10 - Version 10">Quest 10 - Version 10</option>
+          </optgroup>
+
+          <optgroup label="Clover POS">
+            <option value="Cover 2018 Station">Cover 2018 Station</option>
+            <option value="Clover Mini LTE">Clover Mini LTE</option>
+            <option value="Clover Mini WiFi">Clover Mini WiFi</option>
+            <option value="Clover Flex">Clover Flex</option>
+            <option value="Clover Mobile">Clover Mobile</option>
+            <option value="Clover Station 1.0">Clover Station 1.0</option>
+            <option value="Clover Go Bluetooth">Clover Go Bluetooth</option>
+            <option value="Clover Go">Clover Go</option>
+          </optgroup>
+
+          <optgroup label="Terminals">
+            <option value="PAX S80">PAX S80</option>
+            <option value="FD 150">FD 150</option>
+            <option value="FD 130">FD 130</option>
+            <option value="VX 520 NFC">VX 520 NFC</option>
+            <option value="VX 520">VX 520</option>
+            <option value="POYNT">POYNT</option>
+          </optgroup>
+
+          <optgroup label="Pin-Pads">
+            <option value="PAX S300">PAX S300</option>
+            <option value="VX 805">VX 805</option>
+            <option value="RP 10">RP 10</option>
+            <option value="FD 35">FD 35</option>
+            <option value="FD 40">FD 40</option>
+          </optgroup>
+
+          <optgroup label="Printers">
+            <option value="Clover 550 Printer">Clover 550 Printer</option>
+            <option value="Clover 500 Printer">Clover 500 Printer</option>
+            <option value="Clover Kitchen Printer">Clover Kitchen Printer</option>
+            <option value="Clover 1.0 Printer">Clover 1.0 Printer</option>
+            <option value="Clover Mobile Printer">Clover Mobile Printer</option>
+            <option value="Epson T20">Epson T20</option>
+            <option value="Epson M30">Epson M30</option>
+            <option value="Bixolon SRP-275III">Bixolon SRP-275III</option>
+            <option value="TD TB3">TD TB3</option>
+          </optgroup>
+
+          <optgroup label="Accessories">
+            <option value="Clover Cash Drawer">Clover Cash Drawer</option>
+            <option value="Clover Scanner">Clover Scanner</option>
+            <option value="Clover Scale">Clover Scale</option>
+            <option value="Clover Go Stand">Clover Go Stand</option>
+            <option value="TD Premium Dock">TD Premium Dock</option>
+          </optgroup>
+
+
+        </select>
+
+        <br><br>
+
+        <label for="mid">MID: </label>
+        <input type="text" id="mid">
+
+        <br><br>
+
+        <label for="dba">DBA: </label>
+        <input type="text" id="dba">
+
+        <br><br>
+
+        <label for="deploymentType">Deployment Type: </label>
+        <select name="deploymentType" id="deploymentType">
+          <option value="loan">Inventory</option>
+          <option value="loan">Loan</option>
+          <option value="lease">Lease</option>
+          <option value="Purchase">Purchase</option>
+          <option value="sent for repair">Sent for Repair</option>
+          <option value="loan">Demo</option>
+          <option value="unknown">Unknown</option>
+          <option value="loan">Checking In</option>
+        </select>
+
+        <br><br>
+
+        <label for="condition">Condition: </label>
+        <select name="condition" id="condition">
+          <option value="new">New</option>
+          <option value="used">Used</option>
+          <option value="damaged">Damaged</option>
+          <option value="need repair">Need Repair</option>
+          <option value="decommissioned">Discontinued</option>
+          <option value="unknown">Unknown</option>
+        </select>
+
+        <br><br>
+
+        <label for="encryption Type">Encryption Type: </label>
+        <select name="encryptionType" id="encryptionType">
+          <option value="elavon">Elavon</option>
+          <option value="first data">First Data</option>
+          <option value="fd carlin351">FD Carlin351</option>
+          <option value="fd carlin500">FD Carlin500</option>
+          <option value="tsys">TSYS</option>
+          <option value="clearent">Clearent</option>
+          <option value="buypass">Buypass</option>
+          <option value="other">Other</option>
+        </select>
+
+        <br><br>
+
+        <label for="debit encryption">Debit Encryption: </label>
+        <select name="debitEncryption" id="debitEncryption">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="unknown">Unknown</option>
+        </select>
+
+        <!-- <br><br>
+        
+                <label for="damage type">Damage Type: </label>
+                <select name="damage type" id="damage type">
+                    <option value="damaged emv">Damaged EMV</option>
+                    <option value="damaged screen">Damaged Screen</option>
+                    <option value="damaged keyboard">Damaged Keyboard</option>
+                    <option value="damaged printer">Damaged Printer</option>
+                    <option value="damaged swiper">Damaged Swiper</option>
+                    <option value="physical damage">Physical Damage</option>
+                    <option value="tampered">Tampered</option>
+                    <option value="won't power on">Won't Power On</option>
+                    <option value="won't download">Won't Download</option>
+                    <option value="locked">Locked</option>
+                    <option value="bad comm port">Bad Comm Port</option>
+                    <option value="corrupt/no os">Corrupt/No OS</option>
+                    <option value="does not exist">Does Not Exist</option>
+                    <option value="operational issues">Operational Issues</option>
+                    <option value="bsod errors">BSOD Errors</option>
+                    <option value="hardware failure">Hardware Failure</option>
+                </select> -->
+
+    <!-- <br><br>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+
+    </form>
+  </div> -->
+
+
+
+
+
+
+
+    <footer class="row">
+        <div class="col text-center">
+            <br>
+            <hr>
+            <p>Copyright © Alex Robinson 2020</p>
+        </div>
+    </footer>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyD61-eN-IM-oUOwX7gVtmd3rkrjGQvRI8w",
+            authDomain: "tsinventory-75e09.firebaseapp.com",
+            databaseURL: "https://tsinventory-75e09.firebaseio.com",
+            projectId: "tsinventory-75e09",
+            storageBucket: "tsinventory-75e09.appspot.com",
+            messagingSenderId: "846964283525",
+            appId: "1:846964283525:web:fd3d3922925ea2675271ec",
+            measurementId: "G-GP8TJTBY39"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+    </script>
+
+    <!-- Compiled and minified JS -->
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/auth.js"></script>
+    <script src="/scripts/deploy.js"></script>
+
+</body>
+
+</html>
